@@ -1,0 +1,38 @@
+/**
+ * Tailwind CSS configuration file
+ *
+ * docs: https://tailwindcss.com/docs/configuration
+ * default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
+ */
+const path = require('path')
+
+module.exports = {
+  // mode: 'jit', // https://tailwindcss.com/docs/just-in-time-mode
+  darkMode: false,
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: [
+          'Inter',
+          'system-ui',
+          '-apple-system',
+          '"Segoe UI"',
+          'sans-serif'
+        ]
+      }
+    },
+    container: {
+      center: true,
+      padding: '1rem'
+    }
+  },
+  variants: {},
+  plugins: [],
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: [
+      path.resolve(__dirname, '**/*.{js,vue}'),
+      path.resolve(__dirname, '../shopify/**/*.liquid')
+    ]
+  }
+}
